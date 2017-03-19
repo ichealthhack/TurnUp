@@ -15,4 +15,38 @@ data.Gender = data.Gender.apply(lambda x: 1 if x == 'M' else 0)
 days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 data.DayOfTheWeek = data.DayOfTheWeek.apply(lambda x: days.index(x))
 
+total = 296500
+train = int(0.8 * total)
+labels_train = data.Status[:train]
+
+feature_list = [
+'Age',
+'Gender',
+'HourOfTheDay',
+'DayOfTheWeek',
+'Month',
+'Status',
+'Diabetes',
+'Alchoholism',
+'Hypertension',
+'Handicap',
+'Smokes',
+'Scholarship',
+'Tuberculosis',
+'Sms_Reminder',
+'AwaitingTime'
+]
+features_train = data[feature_list].iloc[:train]
+print(features_train)
+features_test = data[feature_list].iloc[train:]
+
+labels_test = data.Status[train:]
+print(labels_test)
+
+
+# Multinomial naive bayes classification
+clf =  MultinomialNB().fit(features_train, labels_train)
+print('Accuracy:', round(accuracy_score(labels_test, 
+                                        clf.predict(features_test)), 2) * 100, '%')
+
 
