@@ -6,10 +6,20 @@ from sklearn.metrics import accuracy_score
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import roc_curve, auc
 
-def plot_wrt_variable(data, variable):
-    pass
+def prob_calc(data, variable):
+    df = pds.crosstab(index = data[variable], columns = data.Status).reset_index()
+    print('the last one')
+    print(df)
+    print(df[0])
+    df['ProbabilityTurnUp'] = df[1] / (df[0] + df[1])
+    return df[[variable, 'ProbabilityTurnUp']]
 
-sns.set_style("whitegrid")
+def plot_wrt_variable(data, variable):
+    sns.set_style("whitegrid")
+    sns.lmplot(data = prob_calc(data, variable), x = variable, y = 'ProbabilityTurnUp', fit_reg = True)
+    sns.plt.xlim(0, 100) # Arbitrary limit
+    sns.plt.title('Probability of showing up with respect to {}'.format(variable))
+
 
 # Input data from csv
 data = pds.read_csv('No-show-Issue-Comma-300k-corrected.csv')
@@ -64,8 +74,10 @@ plt.plot(fpr, tpr, 'ro')
 
 # Plot how each variable independently affects the probability of showing up
 for variable in feature_list:
-    plot_wrt_variable(data, variable)
+    if variable != 'Status':
+        plot_wrt_variable(data, variable)
 
+sns.plt.show()
 plt.show()
 
 
