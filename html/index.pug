@@ -104,13 +104,6 @@ html(lang='en')
             .col-lg-6
               h4 Very interestingly, sending people sms doesn't look a very effective way of improving attendance.
               h4 We even tried to look at this metric only for patients aged between 18 and 30 (most likely to actively use sms), but the result was the same.
-
-          br
-          .row.analysis
-            .col-lg-6
-              h4 People don't like appointments on Sunday :)
-            .col-lg-6.no-pad
-              img.graph(src='./images/DayOfTheWeek.png')
           br
           .row#building
             .col-lg-12
@@ -121,8 +114,6 @@ html(lang='en')
               p However, at the end we preferred to write ourselves the code using python libraries, which made customisation much easier.
               We went for a Bayesian model that gave us a still reasonably good AUC of 0.58.
               img.graph(src='./images/AUC.png')
-
-              p Building the model also allowed us to see which variables are the most influential on the model:
 
           .row#applications
             .col-lg-12
