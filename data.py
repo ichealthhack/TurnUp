@@ -49,4 +49,16 @@ clf =  MultinomialNB().fit(features_train, labels_train)
 print('Accuracy:', round(accuracy_score(labels_test, 
                                         clf.predict(features_test)), 2) * 100, '%')
 
+results = clf.predict_proba(features_test)
+print(results)
+fpr = dict()
+tpr = dict()
+roc_auc = dict()
+fpr, tpr, _ = roc_curve(labels_test, [i[1] for i in results])
+roc_auc = auc(fpr, tpr)
+print(roc_auc)
+plt.plot(fpr, tpr, 'ro')
+plt.show()
+
+
 
