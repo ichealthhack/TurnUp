@@ -99,10 +99,11 @@ html(lang='en')
               img.graph(src='./images/Month.png')
           br
           .row.analysis
-            .col-lg-6.no-pad
-              img.graph(src='./images/clustering.png')
             .col-lg-6
-              h3 This is a graph
+              h4 People don't like appointments on Sunday :)
+            .col-lg-6.no-pad
+              img.graph(src='./images/DayOfTheWeek.png')
+          br
           .row#building
             .col-lg-12
               h1 Building a predictive model
@@ -138,6 +139,29 @@ html(lang='en')
           .row#future
             .col-lg-12
               h1 Future Work
+          .row.analysis
+            .col-lg-6.no-pad
+              img.graph(src='./images/clustering.png')
+            .col-lg-6
+              h4 Currently, we talk about the patients belonging to 3 groups by age. In future, we can use k-means clustering algorithms to have a better group distribution. We can group people based on other conditions and not just the age. The plot represent all the 300K people divided into 6 groups based on their Age, Time of the appoinment and the awaiting time.
+          br
+          .row.analysis
+            .col-lg-6
+              h4 It would be useful to have a better group distribution but how do we select the optimal value for k for the clustering. Here we have plotted the variation between the number of clusters and the sum of the variance of all the points in the respective cluster. From the graph, we infer that k >= 6 will give a pretty good distribution.
+            .col-lg-6.no-pad
+              img.graph(src='./images/sseelbow.png')
+          br
+          .row.analysis
+            .col-lg-6.no-pad
+              img.graph(src='./images/dt.png')
+            .col-lg-6
+              h4 Using decision trees to predict who will show up by supplying information about the person.
+          br
+          .row.analysis
+            .col-lg-6
+              h4 Using patient data to analyse the doctor, i.e. the type of people who visit him/her, male-female ratio and helping the doctor to have an optimal appointment schedule. 
+            .col-lg-6.no-pad
+              img.graph(src='./images/doc.jpg')
 
     // jQuery
     script(src='js/jquery.js')
