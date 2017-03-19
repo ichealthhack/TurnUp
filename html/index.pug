@@ -27,13 +27,17 @@ html(lang='en')
           li
             a(href='#story' data-spy="scroll" data-target="#story") Problem
           li
-            a(href='#analysis' data-spy="scroll" data-target="#analysis") Analysis
+            a(href='#cleaning' data-spy="scroll" data-target="#cleaning") Cleaning Data
           li
-            a(href='#prediction' data-spy="scroll" data-target="#prediction") Prediction
+            a(href='#analysis' data-spy="scroll" data-target="#analysis") Analysing Data
           li
-            a(href='#') GitHub
+            a(href='#building' data-spy="scroll" data-target="#building") Building a predictive model
           li
-            a(href='#') About
+            a(href='#prediction' data-spy="scroll" data-target="#applications") Applications
+          li
+            a(href='#prediction' data-spy="scroll" data-target="#future") Future Work
+          li
+            a(href='https://github.com/ichealthhack/TurnUp') GitHub
       // /#sidebar-wrapper
       // Page Content
       #page-content-wrapper
@@ -44,6 +48,10 @@ html(lang='en')
               p Our idea started from a problem. 30% of patients don't show up to their medical appointments.
               p The current solution to this problem is just sending an SMS reminder to patients, however, this method costs money but is not producing any results.
               p We found a dataset of 300K medical appointment records containing information about the patient showing up and the variables involved. So, we decided to analyze this data and to find some useful insights and lead us to a better solution.
+
+          .row#cleaning
+            .col-lg-12
+              h1 Cleaning Data
 
           .row#analysis
             .col-lg-12
@@ -98,15 +106,17 @@ html(lang='en')
               img.graph(src='./images/clustering.png')
             .col-lg-6
               h3 This is a graph
-          .row#analysis
+          .row#building
             .col-lg-12
-              h1 Building a model
+              h1 Building a predictive model
               p The next step was to use the insights we got from analysing the data and try to build a Machine Learning model to predict what's the probability of a given patient not turning up.
-          .row#prediction
+          .row#applications
             .col-lg-12
-              h1 Prediction
-      // /#page-content-wrapper
-    // /#wrapper
+              h1 Applications
+          .row#future
+            .col-lg-12
+              h1 Future Work
+
     // jQuery
     script(src='js/jquery.js')
     // Bootstrap Core JavaScript
