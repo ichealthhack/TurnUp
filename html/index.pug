@@ -113,27 +113,21 @@ html(lang='en')
               p The first one was AWS Machine Learning API, which gave us a AUC of 0.608, which is a acceptable result.
               p However, at the end we preferred to write ourselves the code using python libraries, which made customisation much easier.
               We went for a Bayesian model that gave us a still reasonably good AUC of 0.58.
-              img.graph(src='./images/AUC.png')
+              br
+              .col-lg-6.col-lg-offset-3
+                img.graph(src='./images/AUC.png')
 
           .row#applications
             .col-lg-12
               h1 Applications
               p This model clearly shows how a deeper insight into this data could help to alleviate the inefficiency in patient attendance.
               p Now we propose one of the many use-cases that this analysis could have:
-              p The cost to a medical practice when a patient doesn't turn up is high - £100.
-              p It is also inefficient to call all your patients who have booked an appointment.
-              p But what if we could selectively target the 10% of them least likely to turn up?
-              p Let's say this 10% normally has a no show rate of 40%. Out of 100 appointments, this would result in a loss of 100 * 40 = £4000.
-              p Targeting this 10%, if we could lower their not show probability to 30% or less, £1000 could be saved for every 100 appointments.
-              p The cost to call these 10% of patients is low - 0.1 * 100 = 10£.
+              p The cost to a medical practice when a patient doesn't turn up is high - £100. It is also inefficient to call all your patients who have booked an appointment. But what if we could selectively target the 10% of them least likely to turn up? Let's say this 10% normally has a no show rate of 40%. Out of 100 appointments, this would result in a loss of 100 * 40 = £4000. Targeting this 10%, if we could lower their not show probability to 30% or less, £1000 could be saved for every 100 appointments. The cost to call these 10% of patients is low - 0.1 * 100 = £10.
               p This gives a net saving of 990£ every 100 appointments.
               p
               p To sum up, a GP could give us their list of future appointments, we could run our model on it and find out the 10% of the patients least likely to show up.
               p Using an effective reminder method, like for example a phone call, the GP could substantially improve the probability of those patients showing up, without without the need to contact those patients who are likely to tun up.
 
-
-              p Building the model also allowed us to see which variables are the most influential on the model:
-              p
 
           .row#future
             .col-lg-12
