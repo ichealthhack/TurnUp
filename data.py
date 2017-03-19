@@ -8,17 +8,20 @@ from sklearn.metrics import roc_curve, auc
 
 def prob_calc(data, variable):
     df = pds.crosstab(index = data[variable], columns = data.Status).reset_index()
-    print('the last one')
     print(df)
-    print(df[0])
     df['ProbabilityTurnUp'] = df[1] / (df[0] + df[1])
     return df[[variable, 'ProbabilityTurnUp']]
 
+# Linear regression when chaning only the passed variable
 def plot_wrt_variable(data, variable):
     sns.set_style("whitegrid")
-    sns.lmplot(data = prob_calc(data, variable), x = variable, y = 'ProbabilityTurnUp', fit_reg = True)
-    sns.plt.xlim(0, 100) # Arbitrary limit
+    newdata = prob_calc(data, variable)
+    sns.lmplot(data = newdata, x = variable, y = 'ProbabilityTurnUp', fit_reg = True)
+    from_x = min(list(data[variable]))
+    to_x = max(list(data[variable]))
+    sns.plt.xlim(from_x, to_x)
     sns.plt.title('Probability of showing up with respect to {}'.format(variable))
+    return newdata
 
 
 # Input data from csv
@@ -63,7 +66,6 @@ print('Accuracy: ', round(accuracy_score(labels_test, clf.predict(features_test)
 
 # AUC
 results = clf.predict_proba(features_test)
-print(results)
 fpr = dict()
 tpr = dict()
 roc_auc = dict()
