@@ -1,0 +1,117 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, shrink-to-fit=no, initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title TurnUp
+    // Bootstrap Core CSS
+    link(href='css/bootstrap.min.css', rel='stylesheet')
+    // Custom CSS
+    link(href='css/simple-sidebar.css', rel='stylesheet')
+    // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+
+  body
+    #wrapper
+      // Sidebar
+      #sidebar-wrapper
+        ul.sidebar-nav
+          li.sidebar-brand
+            h3 TurnUp
+          li
+            a(href='#story' data-spy="scroll" data-target="#story") Problem
+          li
+            a(href='#analysis' data-spy="scroll" data-target="#analysis") Analysis
+          li
+            a(href='#prediction' data-spy="scroll" data-target="#prediction") Prediction
+          li
+            a(href='#') GitHub
+          li
+            a(href='#') About
+      // /#sidebar-wrapper
+      // Page Content
+      #page-content-wrapper
+        .container-fluid
+          .row#story
+            .col-lg-12
+              h1 Problem
+              p Our idea started from a problem. 30% of patients don't show up to their medical appointments.
+              p The current solution to this problem is just sending an SMS reminder to patients, however, this method costs money but is not producing any results.
+              p We found a dataset of 300K medical appointment records containing information about the patient showing up and the variables involved. So, we decided to analyze this data and to find some useful insights and lead us to a better solution.
+
+          .row#analysis
+            .col-lg-12
+              h1 Analysing Data
+              p First, we wanted to see how different variables affected the probability of patients showing up
+          .row.analysis
+            .col-lg-6.no-pad
+              img.graph(src='./images/Age.png')
+            .col-lg-6
+              h4 From this chart, we can clearly see that different ages have different probability of showing up.
+              h4 We also notice that the linear regression model doesn't fit the data points particularly well but from here we can clearly see how they are divided into clusters.
+              h4 The first one are people aged between 0 and 18. They are probably going to go to the doctor with their parents, so they are reasonably likely to show up. We can clearly notice that as soon as people turn 18, and stop going with their parents, their probability decreases dramatically. From 18 onwards we have a clear increasing trend that shows that older people are more likely to turn up.
+          br
+          .row.analysis
+            .col-lg-6
+              h4 From here you can clearly see instead that the time between the day the appointment is booked, and the day of the appointment itself, doesn't affect the probability consinstently.
+            .col-lg-6.no-pad
+              img.graph(src='./images/AwaitingTime.png')
+          br
+          .row.analysis
+            .col-lg-6.no-pad
+              img.graph(src='./images/conditions.png')
+            .col-lg-6
+              h4 Some condition seems to affect the probability more than others.
+          br
+          .row.analysis
+            .col-lg-6
+              h4 People don't like appointments on Saturday :)
+            .col-lg-6.no-pad
+              img.graph(src='./images/Days.png')
+          br
+          .row.analysis
+            .col-lg-6
+              h4 What hour it is in the day doesn't look to affect the probability too much
+            .col-lg-6.no-pad
+              img.graph(src='./images/HourOfTheDay.png')
+          br
+          .row.analysis
+            .col-lg-6
+              h4 People are less likely to attend during summer, maybe because they are on vacation?
+            .col-lg-6.no-pad
+              img.graph(src='./images/Month.png')
+          br
+          .row.analysis
+            .col-lg-6
+              h4 People don't like appointments on Sunday :)
+            .col-lg-6.no-pad
+              img.graph(src='./images/DayOfTheWeek.png')
+          br
+          .row.analysis
+            .col-lg-6.no-pad
+              img.graph(src='./images/clustering.png')
+            .col-lg-6
+              h3 This is a graph
+          .row#analysis
+            .col-lg-12
+              h1 Building a model
+              p The next step was to use the insights we got from analysing the data and try to build a Machine Learning model to predict what's the probability of a given patient not turning up.
+          .row#prediction
+            .col-lg-12
+              h1 Prediction
+      // /#page-content-wrapper
+    // /#wrapper
+    // jQuery
+    script(src='js/jquery.js')
+    // Bootstrap Core JavaScript
+    script(src='js/bootstrap.min.js')
+    // Menu Toggle Script
+
+    script.
+      $("#wrapper").toggleClass("toggled");
